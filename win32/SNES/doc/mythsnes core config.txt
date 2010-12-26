@@ -1,0 +1,66 @@
+-------------------------------------------------
+offset  value
+-------------------------------------------------
+0   00 = O GAME
+   01 = IS GAME
+1   04 = SNES GAME TYPE
+2   HIGH 4BIT = GAME SIZE:
+      4X = 4M
+      8X = 8M
+      9X = 16M
+      AX = 24M
+      BX = 32M
+      CX = 40M
+      DX = 48M
+      EX = 64M
+   LOW 4BIT = ADDRESS(A26~A25)
+3   ADDRESS(A23~A16)
+4   HIGH 4BIT = BANKE:
+      0X = 0 BANK
+      1X = 1 BANK
+      2X = 2 BANK
+      3X = 3 BANK
+      4X = 4 BANK
+   LOW 4BIT = SAVE:
+      X0 = NO SAVE
+       X1 = 16K SAVE
+      X2 = 64K SAVE
+           X3 = 256K SAVE
+            X4 = 512K SAVE
+            X5 = 1M SAVE
+5   HIGH 4BIT = DSP Type:
+      0X = DSP0
+      1X = DSP1
+      2X = DSP2
+      3X = DSP3
+      4X = DSP4
+      5X = DSP5
+      6X = DSP6
+      7X = DSP7
+   LOW 4BIT = RAM:
+      X0 = RAM0
+      X1 = RAM1
+      X2 = RAM2
+      X3 = RAM3
+      X4 = RAM4
+      X5 = RAM5
+      X6 = RAM6
+      X7 = RAM7
+6   HIGH 4BIT = H/L ROM:
+      0X = HIGH ROM
+      1X = LOW ROM
+   LOW 4BIT = SAVE Type:
+      X0 = SAVE0
+      X1 = SAVE1
+      X2 = SAVE2
+      X3 = SAVE3
+      X4 = SAVE4
+      X5 = SAVE5
+7   00 = NOP
+8   FF = NOP
+9   0A = NOP
+10   01 = NOP
+11   00 = NOP
+12 ~ 63   48bytes of Game Name Title
+-------------------------------------------------
+
