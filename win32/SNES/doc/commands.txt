@@ -1,0 +1,10 @@
+The command set is the same as the MD one.
+
+
+IPS patching : -p "ips file path here"
+PAL FIX : -r "1"
+NTSC FIX : -r "2"
+Disable region fixes(Default option) : -r "0"
+Checksum patch : -c "1" (-c "0" disables this & its the default state)
+Deluxe cheat file : -g "cheatfile path here"
+Enable silent mode : -q "1" (disable it with -q "0")
