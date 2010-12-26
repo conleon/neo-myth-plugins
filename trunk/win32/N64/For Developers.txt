@@ -1,0 +1,155 @@
+SuperN64 toolset v1.0.0.7
+
+[hr]
+[hr]
+
+-Features of the plugin-
+
+-Is able to detect and make compatible any image (v64/n64/z64)
+-Is able to calculate and fix the CRC
+-Supports 100% MupenPlus's GoodN64 database with custom exporter for fast access
+-Can detect the save type automatically ( using GoodN64 exported db or if not
+found it has build in lexer library than can detect the type automatically using
+search patterns)
+-Is able to detect the CIC type of any rom and any region
+-Supports  IPS/APS patching(From the next version)
+-Advanced callback system.The plugin can report the progress(in 0 ~ 100% format) and the
+active task name of any internal task.
+-The core is written in portable C using utilities and tools
+coded from scratch without using a single 3rd party library(except for md5)
+-Read/Writes in a single file in medium size blocks for fast proccessing.
+-Region patching(Supports all countries and test modes like mpal)
+
+
+
+-How to use the plugin-
+
+
+Available script commands:
+
+IMPORT_SRC <- IPS/APS patches ( NOT READY YET )
+SOURCE_FILE <- Pass this file for PATCHING
+DESTINATION_FILE <- Destination file (BURN THIS ONE!)
+FIX_CRC <- Will calculate & patch the CRC
+[hr]
+FORCE_REGION <- Override rom region settings
+See "NEO_SN64Engine_Types.h" for the available strings ->
+
+[code]
+static const char* NEON64_REGION_STRING_TABLE[] =
+{
+	"Default\0",
+	"Germany\0",
+	"French\0",
+	"Italian\0",
+	"Europe\0",
+	"Spanish\0",
+	"Australia\0",
+	"XPAL\0",
+	"Mode7\0",
+	"USA\0",
+	"Japan\0"
+};
+
+enum NEON64_Region
+{
+	NEON64_REGION_DEFAULT = 0,
+	NEON64_REGION_GERMANY,
+	NEON64_REGION_FRENCH,
+	NEON64_REGION_ITALIAN,
+	NEON64_REGION_EUROPE,
+	NEON64_REGION_SPANISH,
+	NEON64_REGION_AUSTRALIA,
+	NEON64_REGION_XPAL,
+	NEON64_REGION_MODE7,
+	NEON64_REGION_USA,
+	NEON64_REGION_JAPAN,
+	NEON64_REGION_COUNT
+};
+[/code]
+[hr]
+
+
+How to "compile" scripts(VERY IMPORTANT or scripts will not run!):
+
+1. Include "SN64PLUG_ScriptCompiler\\NEON64_PlugScriptCompiler.hpp"
+
+2. To compile a single command set, do this:
+
+[code]
+CNEON64_ScriptCompiler cmp;
+
+//First arg = identifier , second arg = value
+cmp.compile("SOURCE_FILE","c:\\game.n64");
+cmp.compile("DESTINATION_FILE","c:\\game_patched.n64");
+cmp.compile("FORCE_REGION","Mode7");
+
+//Accessing:
+cmp.getCodePtr()
+cmp.getCodeLength()
+[/code]
+
+
+How to run scripts and updating stats dynamically:
+
+[code]
+#include "..\\PlugBase.h"
+
+//Realtime stats from the plugin
+void realtimeStats(NEON64DynamicStatsBlock* dsBlock)
+{
+	if(!dsBlock)
+		return;
+
+	if(dsBlock->taskNameNeedsUpdate)
+		MessageBox(NULL,dsBlock->currentTaskName,"TASK CHANGED!",MB_OK);
+
+	if(dsBlock->romGoodNameNeedsUpdate)
+		MessageBox(NULL,dsBlock->romGoodName,"GoodN64 name CHANGED!",MB_OK);
+
+	if(dsBlock->progressNeedsUpdate)
+		progressbar->SetPos(dsBlock->progress);
+}
+
+..........
+
+NEON64ResultBlock block;
+
+block.actionScript = cmp.getCodePtr();
+block.actionScriptLength = cmp.getCodeLength();
+block.myDynaStatsCB = realtimeStats;
+
+if(plugin->Patching(&block))
+	All good;
+else
+	Failed;
+
+Save type is : block.saveType (see NEO_SN64Engine_Types.h for more)
+Boot chip is : block.bootChip (see NEO_SN64Engine_Types.h for more)
+[hr]
+[code]
+enum NEON64_SaveType
+{
+    NEON64_SAVE_CARD = 0x1,
+    NEON64_SAVE_EEPROM_4K,
+    NEON64_SAVE_EEPROM_16K,
+    NEON64_SAVE_SRAM_32K,
+    NEON64_SAVE_FLASHRAM_1M,
+    NEON64_SAVE_CONTROLLERPACK,
+    NEON64_SAVE_NONE
+};
+
+enum NEON64_BootChip
+{
+    NEON64_CIC_6101 = 0x1,
+    NEON64_CIC_6102,
+    NEON64_CIC_6103,
+    NEON64_CIC_6105 = 5,
+    NEON64_CIC_6106
+};
+[/code]
+[hr]
+
+
+ShivenYu if you have any questions just ask , also checkout "SN64PLUG_Host"
+in the source package.
