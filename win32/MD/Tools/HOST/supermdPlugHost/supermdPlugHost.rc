@@ -1,0 +1,284 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About supermdPlugHost"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "supermdPlugHost Version 1.2",IDC_STATIC,49,15,119,8,
+                    SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+    LTEXT           "Copyright (C) 2009-2010  conleon1988@gmail.com",
+                    IDC_STATIC,37,29,161,8
+END
+
+IDD_SUPERMDPLUGHOST_DIALOG DIALOGEX 0, 0, 312, 214
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "SuperMD Plugin host (+MD MYTH NEO2SD TOOL+) (c) 2009 - 2010 Conleon"
+
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Select rom directory",IDC_BUTTON1,38,107,97,14,BS_FLAT,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Select destination directory",IDC_BUTTON2,37,125,98,14,
+                    BS_FLAT,WS_EX_STATICEDGE
+    GROUPBOX        "Region",IDC_STATIC,15,23,94,63,BS_FLAT
+    CONTROL         "Europe",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,18,38,39,10
+    CONTROL         "Japan",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,18,52,35,10
+    CONTROL         "USA",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,63,38,31,10
+    CONTROL         "Japan(P)",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,18,66,44,10
+    CONTROL         "Any(E/J)",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,63,66,43,10
+    CONTROL         "Any(E)",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,63,51,37,10
+    GROUPBOX        "Patches",IDC_STATIC,220,23,75,62,BS_FLAT
+    GROUPBOX        "IO Devices",IDC_STATIC,115,23,98,62,BS_FLAT
+    CONTROL         "Joypad",IDC_CHECK10,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,119,32,39,10
+    CONTROL         "6Button",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,165,33,41,10
+    CONTROL         "Mouse",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,119,45,37,10
+    CONTROL         "CD-Rom",IDC_CHECK13,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,119,58,43,10
+    CONTROL         "Keyboard",IDC_CHECK14,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,165,45,46,10
+    CONTROL         "RS232C",IDC_CHECK15,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,165,58,43,10
+    CONTROL         "Teamplay",IDC_CHECK16,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,119,70,47,10
+    CONTROL         "Printer",IDC_CHECK17,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,166,70,36,10
+    CONTROL         "Checksum",IDC_CHECK18,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,224,32,49,10
+    CONTROL         "Common",IDC_CHECK19,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_TABSTOP,224,42,43,10
+    CONTROL         "Copyright",IDC_CHECK20,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,224,52,45,10
+    CONTROL         "Import .IPS",IDC_CHECK21,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,224,62,51,10
+    CONTROL         "Import .SMDCHT",IDC_CHECK22,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_TABSTOP,224,72,70,10
+    PUSHBUTTON      "Begin batch-patching",IDC_BUTTON3,183,136,99,10,BS_FLAT,
+                    WS_EX_STATICEDGE
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",0x0,14,190,
+                    283,13
+    GROUPBOX        "Init configuration",IDC_STATIC,16,96,145,64,BS_FLAT
+    PUSHBUTTON      "Select html-info directory",IDC_BUTTON4,37,142,98,14,
+                    BS_FLAT,WS_EX_STATICEDGE
+    GROUPBOX        "Task",IDC_STATIC,170,96,126,64,BS_FLAT
+    DEFPUSHBUTTON   "[ ? ]",IDC_BUTTON5,285,6,19,11,BS_FLAT,WS_EX_STATICEDGE
+    CONTROL         "Progress2",IDC_PROGRESS2,"msctls_progress32",PBS_SMOOTH | 
+                    WS_BORDER,14,177,283,8,WS_EX_STATICEDGE
+    CONTROL         "Print debug symbols",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,195,103,79,10
+    CONTROL         "1:1 Copied stream verify",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,188,112,91,10
+    PUSHBUTTON      "Cancel task thread",IDC_BUTTON6,183,147,99,10,BS_FLAT,
+                    WS_EX_STATICEDGE
+    CONTROL         "Silent mode(Suggested)",IDC_CHECK9,"Button",
+                    BS_AUTOCHECKBOX | BS_FLAT | WS_TABSTOP,185,122,91,10
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,2
+ PRODUCTVERSION 1,0,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "supermdPlugHost MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 2\0"
+            VALUE "InternalName", "supermdPlugHost\0"
+            VALUE "LegalCopyright", "Copyright (C) 2009\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "supermdPlugHost.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "supermdPlugHost Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 2\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SUPERMDPLUGHOST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 207
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About supermdPlugHost..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Greek resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ELL)
+#ifdef _WIN32
+LANGUAGE LANG_GREEK, SUBLANG_DEFAULT
+#pragma code_page(1253)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\supermdPlugHost.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\supermdPlugHost.ico"
+#endif    // Greek resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\supermdPlugHost.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
