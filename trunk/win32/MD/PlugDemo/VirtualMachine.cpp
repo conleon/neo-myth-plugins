@@ -1441,11 +1441,11 @@ bool runCode(std::vector<COpCode>& opCodes,NeoResultBlock *dst)
 
 				if(isSupportedRom(rom) != RST_SUCCESS)
 				{
-					unMountRom(rom);
-					releaseRom(rom);
-
 					//invert back...broken rom!
 					swap16(rom->romData,(int)rom->romLength);
+
+					unMountRom(rom);
+					releaseRom(rom);
 
 					if(getRomSuffix() == "sms")
 					{
