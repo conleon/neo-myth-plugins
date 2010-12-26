@@ -241,7 +241,7 @@ bool OP_SAV_FUNC(COpCode& opRef,NeoResultBlock* dst,RomInfo* rom)
 		//pass #2 eeprom.inc
 		const std::string incF = getPlugPath() + std::string("eeprom.inc");
 
-		MessageBox(NULL,incF.c_str(),"",MB_OK);
+		//MessageBox(NULL,incF.c_str(),"",MB_OK);
 		if(!fileExists(incF,true))
 			return true;
 
