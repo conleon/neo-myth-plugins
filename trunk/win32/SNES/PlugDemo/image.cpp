@@ -340,9 +340,12 @@ void configureImage(NeoResultBlock* block,const unsigned char* md5)
 	# $0c => $400000 bytes == 4 megabytes 
 	*/
 
+	bool force4Mb = false;
+
 	switch(rom_size)
 	{
 		case 0x08:
+			force4Mb = true;
 			block->romSizeDetected = NEOSNES_ROMSIZE_4M;//2M; Core doesn't seem to support 2Mb ??????????
 		break;
 
@@ -368,7 +371,10 @@ void configureImage(NeoResultBlock* block,const unsigned char* md5)
 			const int mbit = ((int)block->romBufferLength) / 131072;
 
 			if(mbit < 4)
+			{
+				force4Mb = true;
 				block->romSizeDetected = NEOSNES_ROMSIZE_4M;//2M; Core doesn't seem to support 2Mb ??????????
+			}
 			else if( (mbit > 4) && (mbit <= 8))
 				block->romSizeDetected = NEOSNES_ROMSIZE_8M;
 			else if( (mbit > 8) && (mbit <= 16))
@@ -571,5 +577,25 @@ void configureImage(NeoResultBlock* block,const unsigned char* md5)
 		}
 	}
 
+	//Align to 4Mb
+	{
+		if(force4Mb)
+		{
+			const unsigned int newSize = 4 * 131072;
+			unsigned char* p = (unsigned char*)block->romBuffer;
+			unsigned char* p2 = new unsigned char[newSize];
 
+			if(p2)
+			{
+				memcpy(p2,p,block->romBufferLength);
+				memset(p2 + block->romBufferLength,'\0',newSize - block->romBufferLength);
+
+				delete p;
+
+				block->romBufferLength = newSize;
+				block->romBuffer = (void*)p2;
+			}
+		}
+	}
 }
+
